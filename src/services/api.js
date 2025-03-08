@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const API = axios.create({
-	baseURL: 'http://quantum-stack-backend.onrender.com/api/',
+	baseURL: 'https://quantum-stack-backend.onrender.com/api/',
 });
 
 // Add JWT token to headers if available
@@ -26,7 +26,7 @@ const refreshToken = async () => {
 			throw new Error('No refresh token available');
 		}
 		const response = await axios.post(
-			'http://quantum-stack-backend.onrender.com/api/token/refresh/',
+			'https://quantum-stack-backend.onrender.com/api/token/refresh/',
 			{refresh},
 		);
 		localStorage.setItem('accessToken', response.data.access); // Store new access token
