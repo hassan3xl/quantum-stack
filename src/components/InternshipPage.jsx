@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {API} from '../services/api';
+import Loader from './Loader'
 
 const InternshipPage = () => {
 	const [internships, setInternships] = useState([]);
@@ -55,7 +56,7 @@ const InternshipPage = () => {
 		navigate('/internships/new');
 	};
 
-	if (loading) return <p>Loading internships...</p>;
+	if (loading) return <Loader />;
 	if (error) return <p className="text-red-600">{error}</p>;
 
 	return (
