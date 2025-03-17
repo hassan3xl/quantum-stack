@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 export const API = axios.create({
-	baseURL: 'https://quantum-stack-backend.onrender.com/api/',
+	// baseURL: 'https://quantum-stack-backend.onrender.com/api/', //production
+	baseURL: 'http://127.0.0.1:8000/api/', //development
+
 });
 
 // Add JWT token to headers if available

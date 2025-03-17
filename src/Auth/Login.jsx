@@ -6,7 +6,7 @@ import Loader from '../components/Loader';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
   const [isRegister, setIsRegister] = useState(false);
@@ -33,14 +33,14 @@ const Login = () => {
         const response = await login(formData);
         localStorage.setItem('accessToken', response.data.access);
         localStorage.setItem('refreshToken', response.data.refresh);
-        localStorage.setItem('username', formData.username);
+        localStorage.setItem('email', formData.email);
         navigate('/dashboard');
       }
     } catch (err) {
       setError(
         isRegister
           ? 'Registration failed. Please try again.'
-          : 'Invalid username or password'
+          : 'Invalid email or password'
       );
     } finally {
       setIsLoading(false);
@@ -61,10 +61,10 @@ const Login = () => {
 
         <input
           type="text"
-          name="username"
-          value={formData.username}
+          name="email"
+          value={formData.email}
           onChange={handleChange}
-          placeholder="Username"
+          placeholder="email"
           className="w-full p-2 border rounded mb-4"
           required
           disabled={isLoading}

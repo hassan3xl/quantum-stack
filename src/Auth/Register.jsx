@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 
 const Register = () => {
 	const [formData, setFormData] = useState({
-		username: '',
+		email: '',
 		password: '',
 	});
 	const [error, setError] = useState(null);
@@ -36,11 +36,11 @@ const Register = () => {
 				<h2 className="text-xl font-bold mb-4">Register</h2>
 				{error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 				<input
-					type="text"
-					name="username"
-					value={formData.username}
+					type="email"
+					name="email"
+					value={formData.email}
 					onChange={handleChange}
-					placeholder="Username"
+					placeholder="email"
 					className="w-full p-2 border rounded mb-4"
 				/>
 

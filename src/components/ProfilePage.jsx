@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
-import axios from 'axios';
 import {useNavigate, Link} from 'react-router-dom';
 import {API} from '../services/api';
+import Loader from './Loader'
 
 const ProfilePage = () => {
 	const [user, setUser] = useState(null);
@@ -25,7 +25,7 @@ const ProfilePage = () => {
 		fetchProfileData();
 	}, []);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading) return <Loader />
 	if (error) return <div>Error: {error}</div>;
 
 	return (
@@ -38,7 +38,9 @@ const ProfilePage = () => {
 					User Information
 				</h3>
 				<p>
-					<strong>Username:</strong> {user.username}
+					<strong>First Name:</strong> {user.first_name}
+				</p><p>
+					<strong>Last Name:</strong> {user.last_name}
 				</p>
 				<p>
 					<strong>Email:</strong> {user.email}

@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {getCourseDetails} from '../services/api';
+import Loader from './Loader'
 
 const CourseDetailsPage = () => {
 	const {id} = useParams();
@@ -44,7 +45,7 @@ const CourseDetailsPage = () => {
 		return Math.round((elapsedDuration / totalDuration) * 100);
 	};
 
-	if (loading) return <div>Loading...</div>;
+	if (loading) return < Loader />
 	if (error) return <div>Error: {error}</div>;
 
 	return (
